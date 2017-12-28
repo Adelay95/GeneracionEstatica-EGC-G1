@@ -11,4 +11,22 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 require_once 'library/functions.php';
+require_once 'library/view.php';
+
+function html_generation_plugin_menu(){
+	
+	add_menu_page('Configuración de la generación estática del sitio web',
+					'Generación estática',
+					'administrator',	
+				  	'html-generation-content-settings',		
+				  	'html_generation_content_page_settings',
+					'dashicons-admin-generic');				
+}
+add_action('admin_menu','html_generation_plugin_menu');
+
+
+
+add_action('admin_init','html_generation_content_settings');
+
+
 ?>
