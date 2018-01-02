@@ -1,0 +1,22 @@
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'css/carga.css' %}" />
+
+<body>
+<a id="oculto" href="" role="button" onclick="show('layer')">Crear pagina estática</a>
+
+
+<div id="layer" style="display:none;">
+<img id="layercarga" src="images/cargando.gif" />
+</div>
+
+
+    <script type="text/javascript">
+	function show(bloq) {
+	  obj = document.getElementById(bloq);
+	  obj.style.display = (obj.style.display=='none') ? 'block' : 'block';
+	  document.getElementById('oculto').style.visibility ='hidden'
+	}
+	</script>
+
+</body>
+</html>
