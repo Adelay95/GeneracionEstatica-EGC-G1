@@ -17,6 +17,9 @@ function zip_generate(){
 	$url=get_option('url_value');
 	$url2=explode("/",$url);
 	$pos = strpos($url, "://");
+	if($url==""){
+	$dir="localhost";
+	}else
 	if ($pos === false) {
   	$dir=$url2[0];
 	}else{
