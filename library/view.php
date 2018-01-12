@@ -8,11 +8,12 @@ function html_generation_content_page_settings(){
 				settings_fields('html-generation-content-settings-group');
 				do_settings_sections( 'html-generation-content-settings-group' ); 
 			?>
-			<label>Prueba:&nbsp;</label>
+			<label>URL del sitio web:&nbsp;</label>
 			<input 	type="text" 
-					name="prueba_value" 
-					id="prueba_value" 
-					value="<?php echo get_option('prueba_value'); ?>" />
+					name="url_value" 
+					id="url_value"
+					placeholder="localhost"
+					value="<?php echo get_option('url_value'); ?>" />
 			
 			<?php submit_button(); ?>
 
@@ -23,7 +24,7 @@ function html_generation_content_page_settings(){
 
 if(isset($_REQUEST["generateArchiveButton"])){
    generate_archive_zip();
-}else{
+}
 ?>
 <div class="wrap">
 <form action="" method="POST">
@@ -33,12 +34,11 @@ if(isset($_REQUEST["generateArchiveButton"])){
 <?php 
 echo '<br><a href="../wp-content/plugins/generacion-estatica/uploads/static-html.zip">Descargar</a>';
 }
-}
 
 
 function html_generation_content_settings(){
 	register_setting('html-generation-content-settings-group',
-					 'prueba_value');
+					 'url_value');
 }
 
 ?>
