@@ -9,10 +9,8 @@ Author URI:  https://1984.lsi.us.es/wiki-egc/index.php/Gesti%C3%B3n_de_generaci%
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
-
 require_once 'library/functions.php';
 require_once 'library/view.php';
-
 function html_generation_plugin_menu(){
 	
 	add_menu_page('Configuración de la generación estática del sitio web',
@@ -23,10 +21,5 @@ function html_generation_plugin_menu(){
 					'dashicons-admin-generic');				
 }
 add_action('admin_menu','html_generation_plugin_menu');
-
-
-
 add_action('admin_init','html_generation_content_settings');
-
-
 ?>
