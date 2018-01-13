@@ -12,7 +12,7 @@ before_deploy:
   - mkdir build
   - zip -r build/generacion-estatica.zip ./*
 deploy:
-  - provider: s3
+  provider: s3
   access_key_id: ${A_ACCESS_ID}
   acl: public_read
   secret_access_key: ${A_ACCESS_SECRET}
