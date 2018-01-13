@@ -45,6 +45,11 @@ function html_generation_content_page_settings(){
 			<?php submit_button('Guardar cambios'); ?>
 		</form>
 	</div>
+
+<div id="layer" style="display:none;">
+<img id="layercarga" src="../wp-content/plugins/generacion-estatica/images/dashinfinity.gif" />
+</div>
+
 <?php
  
 
@@ -54,11 +59,30 @@ if(isset($_REQUEST["generateArchiveButton"])){
 ?>
 <div class="wrap">
 <form action="" method="POST">
-	<button id="generateArchiveButton" name="generateArchiveButton" type="submit" onclick="return confirm('¿Desea continuar?\n\n(Tenga en cuenta que debe haber guardado los cambios si quiere que se utilicen)')" class="button-primary">Generar la web estática</button>
+	<button id="generateArchiveButton" name="generateArchiveButton" type="submit" onclick="show('layer');" class="button-primary">Generar la web estática</button>
 </form>
 </div>
+<script type="text/javascript">
+function show(bloq) {
+
+		obj = document.getElementById(bloq);
+		obj.style.display = (obj.style.display=='none') ? 'block' : 'block';
+		document.getElementById('generateArchiveButton').style.visibility ='hidden';
+}
+</script>
+
+<?php
+$nombre_fichero = '../wp-content/plugins/generacion-estatica/uploads/static-html.zip';
+
+if (file_exists($nombre_fichero)) {
+    echo "El fichero de generación estática guardado en la ruta: ''$nombre_fichero'', está listo para descargar";
+    echo '<br><a href="../wp-content/plugins/generacion-estatica/uploads/static-html.zip">Descargar</a>';
+} 
+?>
+
+
+
 <?php 
-echo '<br><a href="../wp-content/plugins/generacion-estatica/uploads/static-html.zip">Descargar</a>';
 }
 
 
