@@ -15,7 +15,7 @@ function html_generation_content_page_settings(){
 					placeholder="localhost"
 					value="<?php echo get_option('url_value'); ?>" />
 			
-			<?php submit_button(); ?>
+			<?php submit_button('Guardar cambios'); ?>
 
 		</form>
 	</div>
@@ -28,7 +28,8 @@ if(isset($_REQUEST["generateArchiveButton"])){
 ?>
 <div class="wrap">
 <form action="" method="POST">
-	<button id="generateArchiveButton" name="generateArchiveButton" type="submit" class="button-primary">Generar la web estática</button>
+	<button id="generateArchiveButton" name="generateArchiveButton" type="submit" onclick="return confirm('¿Desea continuar?\n\n(Tenga en cuenta que debe haber guardado los cambios si quiere que se utilicen)')" 
+	class="button-primary">Generar la web estática</button>
 </form>
 </div>
 <?php 
