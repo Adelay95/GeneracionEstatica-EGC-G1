@@ -2,8 +2,6 @@
 
 namespace EGC\GeneracionEstatica\Tests;
 
-use EGC\GeneracionEstatica\functions;
-
 class HttrackTest extends AbstractTest
 {
     public function ejemploGeneracionEstatica(){
