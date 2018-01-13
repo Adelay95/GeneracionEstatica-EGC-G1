@@ -2,10 +2,13 @@
 
 namespace EGC\GeneracionEstatica\Tests;
 
+use EGC\GeneracionEstatica\functions
+
+
 class HttrackTest extends AbstractTest
 {
     public function testBaseDeDatos(){
-        $url=get_option('url_value');
+	run_httrack()
         $this->assertTrue($url=='http://blog.httrack.com/');
     }
 }
