@@ -2,7 +2,7 @@
 
 namespace EGC\GeneracionEstatica\Tests;
 
-use EGC\GeneracionEstatica\functions
+use EGC\GeneracionEstatica\functions;
 
 class HttrackTest extends AbstractTest
 {
