@@ -1,5 +1,6 @@
 language: php
 php:
+<<<<<<< HEAD
   - 7.0
 notifications:
   email: false
@@ -24,3 +25,26 @@ deploy:
   skip_cleanup: true
   on:
     branch: release
+=======
+	- 7.0
+notifications:
+	email: false
+services:
+	- mysql
+before_install:
+	- mysql -e 'CREATE DATABASE splc2017;'
+before_deploy:
+	- rm -rf .git
+	- mkdir build
+	- zip -r build/generacion-estatica.zip ./*
+deploy:
+	- provider: s3
+	access_key_id: ${A_ACCESS_ID}
+	acl: public_read
+	secret_access_key: ${A_ACCESS_SECRET}
+	local_dir: build
+	bucket: "egc-generacionestatica"
+	skip_cleanup: true
+	on:
+		branch: release
+>>>>>>> release
