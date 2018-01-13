@@ -1,10 +1,5 @@
 <?php
-
 namespace EGC\GeneracionEstatica\Tests;
-
-class Ejemplo extends AbstractTest
+abstract class AbstractTest extends \PHPUnit\Framework\TestCase
 {
-    public function ejemplo(){
-        $this->assertTrue(true);
-    }
 }
