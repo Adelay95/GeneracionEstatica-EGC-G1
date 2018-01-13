@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "EGC\\GeneracionEstatica\\": "src/"
+            "EGC\\GeneracionEstatica\\": "library/"
         }
     },
     "autoload-dev": {
