@@ -1,1 +1,0 @@
-﻿Carpeta donde el plugin guardará los archivos generados.
