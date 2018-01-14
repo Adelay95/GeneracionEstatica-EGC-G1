@@ -9,7 +9,7 @@ class GenerarArchivoTest extends AbstractTest
 	$structureoption="";
 	$fileoption="p3";
 	$erroroption="";
-	run_httrack($url,$structureoption,$fileoption,$erroroption);
+	run_httrack($url,$structureoption,$fileoption,$erroroption,"true");
 	zip_generate($url,$structureoption);
 	$comando1='cd ../uploads && ls';
 	$out1 = array();
