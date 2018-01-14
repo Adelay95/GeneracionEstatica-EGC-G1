@@ -1,6 +1,5 @@
 <?php
 namespace EGC\GeneracionEstatica\Tests;
-include(dirname(__FILE__)."/../library/functions.php");
 class GenerateZipTest extends AbstractTest
 {
     public function testGenerateZip(){
