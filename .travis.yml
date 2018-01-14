@@ -7,20 +7,22 @@ services:
   - mysql
 before_install:
   - mysql -e 'CREATE DATABASE splc2017;'
+  - sudo apt-get install -y httrack
+  - sudo apt-get install -y webhttrack
   - composer self-update
   - composer install
   - composer update
 before_deploy:
+  - git config --local user.name "Adelay95"
+  - git config --local user.email "franciscojavierhigueras@gmail.com"
   - rm -rf .git
   - mkdir build
   - zip -r build/generacion-estatica.zip ./*
+
 deploy:
-  provider: s3
-  access_key_id: ${A_ACCESS_ID}
-  acl: public_read
-  secret_access_key: ${A_ACCESS_SECRET}
-  local_dir: build
-  bucket: "egc-generacionestatica"
+  provider: releases
+  api_key: 5f668092aca67b2e2bea4507b5c109cf6bcd8e0c
+  file: build/*
   skip_cleanup: true
   on:
-    branch: release
+    branch: SHOPRepository

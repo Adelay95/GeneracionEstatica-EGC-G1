@@ -1,10 +1,5 @@
 <?php
-
-function run_httrack() {
-	$url=get_option('url_value');
-	$structureoption=get_option('structure_value');
-	$fileoption=get_option('file_value');
-	$erroroption=get_option('error_value');
+function run_httrack($url,$structureoption,$fileoption,$erroroption,$test) {
 	if ($url=="") {
   	$url="localhost";
 	}
@@ -24,17 +19,20 @@ function run_httrack() {
 	$file=" -".$fileoption;
 	$error=" -o0";
 	}
-	$comando1='cd ../wp-content/plugins/generacion-estatica && rm -r * && cd -';
+	if($test=="true"){
+	$comando1='cd uploads && rm -r * && cd -';
+   	$comando2='mkdir uploads/static-generation  && cd -';
+	$comando3='httrack '.$url.$error.$structure.$file.' -O "uploads/static-generation" > uploads/static-generation/res.txt  && cd -';	
+	}else{
+	$comando1='cd ../wp-content/plugins/generacion-estatica/uploads && rm -r * && cd -';
    	$comando2='cd ../wp-content/plugins/generacion-estatica && mkdir uploads/static-generation  && cd -';
 	$comando3='cd ../wp-content/plugins/generacion-estatica && httrack '.$url.$error.$structure.$file.' -O "uploads/static-generation" > uploads/static-generation/res.txt  && cd -';
-	
+	}
 	exec($comando1);
 	exec($comando2);
 	exec($comando3);	
 }
-function zip_generate(){
-	$url=get_option('url_value');
-	$structure=get_option('structure_value');
+function zip_generate($url,$structure,$test){
 	if($structure==""){
 		$url2=explode("/",$url);
 		$pos = strpos($url, "://");
@@ -49,14 +47,24 @@ function zip_generate(){
 	}else{
 		$dir="web";
 	}
+	if($test=="true"){
+	$comando1='cd uploads/static-generation && zip -r ../static-html.zip '.$dir.' && cd -';
+	$comando2='rm -R uploads/static-generation  && cd -';
+	}else{
 	$comando1='cd ../wp-content/plugins/generacion-estatica/uploads/static-generation && zip -r ../static-html.zip '.$dir.' && cd -';
 	$comando2='cd ../wp-content/plugins/generacion-estatica && rm -R uploads/static-generation  && cd -';
-        exec($comando1);
+	}
+	
+    exec($comando1);
 	exec($comando2);
 }
 function generate_archive_zip(){
-	run_httrack();
-	zip_generate();
+	$url=get_option('url_value');
+	$structureoption=get_option('structure_value');
+	$fileoption=get_option('file_value');
+	$erroroption=get_option('error_value');
+	run_httrack($url,$structureoption,$fileoption,$erroroption,"false");
+	zip_generate($url,$structureoption,"false");
 }
 
 ?>
