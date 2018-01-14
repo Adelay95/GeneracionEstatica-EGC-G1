@@ -7,6 +7,8 @@ services:
   - mysql
 before_install:
   - mysql -e 'CREATE DATABASE splc2017;'
+  - sudo apt-get install -y httrack
+  - sudo apt-get install -y webhttrack
   - composer self-update
   - composer install
   - composer update

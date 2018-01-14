@@ -11,7 +11,7 @@ class GenerarArchivoTest extends AbstractTest
 	$erroroption="";
 	run_httrack($url,$structureoption,$fileoption,$erroroption,"true");
 	zip_generate($url,$structureoption,"true");
-	$comando1='cd ../uploads && ls';
+	$comando1='cd uploads && ls';
 	$out1 = array();
 	exec($comando1,$out1);
     $this->assertTrue($out1[0]=="static-html.zip");
