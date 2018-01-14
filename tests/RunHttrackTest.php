@@ -1,6 +1,6 @@
 <?php
 namespace EGC\GeneracionEstatica\Tests;
-include(dirname(__FILE__)."/../library/functions.php");
+
 class RunHttrackTest extends AbstractTest
 {
     public function testRunHttrack(){
