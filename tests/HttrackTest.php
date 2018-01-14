@@ -17,6 +17,6 @@ class HttrackTest extends AbstractTest
 	exec($comando1);
 	exec($comando2);
 	exec($comando3);
-        $this->assertTrue($url=='http://blog.httrack.com/')
+        $this->assertTrue($url=='http://blog.httrack.com/');
     }
 }
