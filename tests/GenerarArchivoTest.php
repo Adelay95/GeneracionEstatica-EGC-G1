@@ -15,7 +15,6 @@ class GenerarArchivoTest extends AbstractTest
 	$out1 = array();
 	exec($comando1,$out1);
     $this->assertTrue($out1[0]=="static-html.zip");
-	echo "h".$out1[0];
     }
 }
 

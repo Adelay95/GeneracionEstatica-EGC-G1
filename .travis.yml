@@ -19,7 +19,7 @@ before_deploy:
 
 deploy:
   provider: releases
-  api_key: b3e5f47472072a18568b6b1df44469c352a5dcb0
+  api_key: 8fa1f3c5c939860930359f526990ac37b04ff5ef
   acl: public_read
   local_dir: build
   bucket: "egc-generacionestatica"
