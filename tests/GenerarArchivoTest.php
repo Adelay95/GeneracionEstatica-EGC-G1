@@ -1,7 +1,7 @@
 <?php
 
 namespace EGC\GeneracionEstatica\Tests;
-use EGC\GeneracionEstatica\functions;
+require_once '../library/functions.php';
 class GenerarArchivoTest extends AbstractTest
 {
     public function testGenerarArchivo(){
