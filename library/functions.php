@@ -20,11 +20,11 @@ function run_httrack($url,$structureoption,$fileoption,$erroroption,$test) {
 	$error=" -o0";
 	}
 	if($test=="true"){
-	$comando1='cd .. && rm -r * && cd -';
+	$comando1='cd ../uploads && rm -r * && cd -';
    	$comando2='cd .. && mkdir uploads/static-generation  && cd -';
 	$comando3='cd .. && httrack '.$url.$error.$structure.$file.' -O "uploads/static-generation" > uploads/static-generation/res.txt  && cd -';	
 	}else{
-	$comando1='cd ../wp-content/plugins/generacion-estatica && rm -r * && cd -';
+	$comando1='cd ../wp-content/plugins/generacion-estatica/uploads && rm -r * && cd -';
    	$comando2='cd ../wp-content/plugins/generacion-estatica && mkdir uploads/static-generation  && cd -';
 	$comando3='cd ../wp-content/plugins/generacion-estatica && httrack '.$url.$error.$structure.$file.' -O "uploads/static-generation" > uploads/static-generation/res.txt  && cd -';
 	}
