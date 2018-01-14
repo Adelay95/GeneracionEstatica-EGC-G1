@@ -25,4 +25,4 @@ deploy:
   file: build/*
   skip_cleanup: true
   on:
-    branch: release
+    branch: SHOPRepository
