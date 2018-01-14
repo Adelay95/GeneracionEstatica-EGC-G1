@@ -1,10 +1,5 @@
 <?php
-
-function run_httrack() {
-	$url=get_option('url_value');
-	$structureoption=get_option('structure_value');
-	$fileoption=get_option('file_value');
-	$erroroption=get_option('error_value');
+function run_httrack($url,$structureoption,$fileoption,$erroroption) {
 	if ($url=="") {
   	$url="localhost";
 	}
@@ -32,9 +27,7 @@ function run_httrack() {
 	exec($comando2);
 	exec($comando3);	
 }
-function zip_generate(){
-	$url=get_option('url_value');
-	$structure=get_option('structure_value');
+function zip_generate($url,$structure){
 	if($structure==""){
 		$url2=explode("/",$url);
 		$pos = strpos($url, "://");
@@ -55,8 +48,12 @@ function zip_generate(){
 	exec($comando2);
 }
 function generate_archive_zip(){
-	run_httrack();
-	zip_generate();
+	$url=get_option('url_value');
+	$structureoption=get_option('structure_value');
+	$fileoption=get_option('file_value');
+	$erroroption=get_option('error_value');
+	run_httrack($url,$structureoption,$fileoption,$erroroption);
+	zip_generate($url,$structureoption);
 }
 
 ?>
