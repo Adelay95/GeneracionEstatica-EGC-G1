@@ -1,0 +1,24 @@
+{
+    "name": "egc/generacionestatica",
+    "description": "Dependencias para el funcionamiento de los tests",
+    "type": "project",
+    "authors": [
+        {
+            "name": "francisco higueras",
+            "email": "franciscojavierhigueras@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "v2.4.4",
+        "illuminate/database": "v5.5.28",
+        "mpdf/mpdf": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "EGC\\GeneracionEstatica\\": "library/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { "EGC\\GeneracionEstatica\\Tests\\": "tests/" }
+    }
+}
