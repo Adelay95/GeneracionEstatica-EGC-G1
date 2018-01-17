@@ -9,7 +9,8 @@ class GenerarWebTest extends AbstractTest
 	$structureoption="";
 	$fileoption="p3";
 	$erroroption="";
-	run_httrack($url,$structureoption,$fileoption,$erroroption,"true");
+	$diroption="";
+	run_httrack($url,$structureoption,$fileoption,$erroroption,$diroption,"true");
 	zip_generate($url,$structureoption,"true");
 	$comando1='cd uploads && ls';
 	$out1 = array();
