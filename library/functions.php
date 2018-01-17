@@ -1,5 +1,5 @@
 <?php
-function run_httrack($url,$structureoption,$fileoption,$erroroption,$test) {
+function run_httrack($url,$structureoption,$fileoption,$erroroption,$diroption,$test) {
 	if ($url=="") {
   	$url="localhost";
 	}
@@ -19,14 +19,19 @@ function run_httrack($url,$structureoption,$fileoption,$erroroption,$test) {
 	$file=" -".$fileoption;
 	$error=" -o0";
 	}
+	if ($diroption=="") {
+	$dir=$diroption;
+	}else{
+	$dir=" -".$diroption;
+	}
 	if($test=="true"){
 	$comando1='cd uploads && rm -r * && cd -';
    	$comando2='mkdir uploads/static-generation  && cd -';
-	$comando3='httrack '.$url.$error.$structure.$file.' -O "uploads/static-generation" > uploads/static-generation/res.txt  && cd -';	
+	$comando3='httrack '.$url.$error.$structure.$file.$dir.' -O "uploads/static-generation" > uploads/static-generation/res.txt  && cd -';	
 	}else{
 	$comando1='cd ../wp-content/plugins/generacion-estatica/uploads && rm -r * && cd -';
    	$comando2='cd ../wp-content/plugins/generacion-estatica && mkdir uploads/static-generation  && cd -';
-	$comando3='cd ../wp-content/plugins/generacion-estatica && httrack '.$url.$error.$structure.$file.' -O "uploads/static-generation" > uploads/static-generation/res.txt  && cd -';
+	$comando3='cd ../wp-content/plugins/generacion-estatica && httrack '.$url.$error.$structure.$file.$dir.' -O "uploads/static-generation" > uploads/static-generation/res.txt  && cd -';
 	}
 	exec($comando1);
 	exec($comando2);
@@ -63,7 +68,8 @@ function generate_archive_zip(){
 	$structureoption=get_option('structure_value');
 	$fileoption=get_option('file_value');
 	$erroroption=get_option('error_value');
-	run_httrack($url,$structureoption,$fileoption,$erroroption,"false");
+	$diroption=get_option('dir_value');
+	run_httrack($url,$structureoption,$fileoption,$erroroption,$diroption,"false");
 	zip_generate($url,$structureoption,"false");
 }
 
