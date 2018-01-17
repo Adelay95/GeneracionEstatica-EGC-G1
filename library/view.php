@@ -41,6 +41,14 @@ function html_generation_content_page_settings(){
 				  <option value="o0" <?php if(get_option('error_value')=="o0") echo 'selected'; ?>>No</option>
 	
 				</select>
+<br>
+<label>Contenido:&nbsp;</label>
+				<select name="dir_value" 
+					id="dir_value">
+				  <option value="" <?php if(get_option('dir_value')=="") echo 'selected'; ?>>Toda la web del dominio especificado (por defecto)</option>
+				  <option value="S" <?php if(get_option('dir_value')=="S") echo 'selected'; ?>>Todo el directorio en el que se encuntra la página dada</option>
+	
+				</select>
 			
 			<?php submit_button('Guardar cambios'); ?>
 		</form>
@@ -71,6 +79,8 @@ function html_generation_content_settings(){
 					 'file_value');
 	register_setting('html-generation-content-settings-group',
 					 'error_value');
+	register_setting('html-generation-content-settings-group',
+					 'dir_value');
 }
 
 ?>
